@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import RandomUser from '../api/randomUserAPI'
+import { useSelector, useDispatch, shallowEqual } from 'react-redux'
+import { fetchRandomUser } from '../state/actions-creators'
 
 const LandingPage:React.FC = () => {
+
+    
+    const profile = useSelector((state: any) => state.profile, shallowEqual)
+    const error = useSelector((state: any) => state.error)
+    const dispatch = useDispatch()
+
     const [isLoading, setIsLoading] = useState(false)
+
     useEffect(() => {
-        const findRandomUser = async() => {
-            try {
-                const findRandom = await RandomUser.findRandomUser()
-                console.log(findRandom)
-            } catch (error) {
-                return error
-            }
-        }
-        const pageLoad = setTimeout(()=> {
-            //have global UI loading for this
-            setIsLoading(true)
-        }, 500)
-        findRandomUser()
-        return () => clearTimeout(pageLoad)
-    })
+        dispatch(fetchRandomUser() as any)
+    }, [dispatch])
 
     return (
         <div className="h1">
-            LandingPage
+            <div>{profile.results.map((res:any) => res.name.first)}</div>
         </div>
     )
 }
