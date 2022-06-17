@@ -4,7 +4,8 @@ import { fetchRandomUser } from '../state/actions-creators'
 
 const LandingPage:React.FC = () => {
 
-    
+   
+
     const profile = useSelector((state: any) => state.profile, shallowEqual)
     const error = useSelector((state: any) => state.error)
     const dispatch = useDispatch()
