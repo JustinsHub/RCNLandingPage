@@ -1,9 +1,10 @@
 import React from 'react';
-import './App.css';
+import MainRoutes from './components/MainRoutes';
 
 const App: React.FC = () =>  {
   return (
     <div>
+      <MainRoutes/>
     </div>
   );
 }
