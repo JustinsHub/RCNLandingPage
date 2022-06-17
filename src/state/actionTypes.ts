@@ -1,1 +1,4 @@
-export {}
+
+
+export const FETCH_RANDOM_USER = 'FETCH_RANDOM_USER'
+
