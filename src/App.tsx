@@ -10,9 +10,7 @@ import Navbar from './components/Navbar';
 const App: React.FC = () =>  {
   return (
     <main>
-      <Navbar/>
       <MainRoutes/>
-      <Footer/>
     </main>
   );
 }

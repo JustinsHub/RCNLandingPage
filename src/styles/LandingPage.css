@@ -1,0 +1,7 @@
+.LandingPage-bg {
+  background-image: url(./images/LandingPageBG.jpeg);
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  width: auto;
+  height: 100vh;
+}
