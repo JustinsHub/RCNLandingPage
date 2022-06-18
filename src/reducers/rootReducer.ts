@@ -1,4 +1,4 @@
-import { FETCH_RANDOM_USER, ERROR } from "../actions/action-types"
+import { FETCH_RANDOM_USER, ERROR, FETCH_MANY_RANDOM_USERS } from "../actions/action-types"
 
 type Action = Initial
 
@@ -18,6 +18,11 @@ export const rootReducer = (state:any = INITIAL_STATE, action:Action) => {
         case FETCH_RANDOM_USER:
             return {
                 ...state, 
+                profile: action.profile
+            }
+        case FETCH_MANY_RANDOM_USERS: 
+            return {
+                ...state,
                 profile: action.profile
             }
         case ERROR:

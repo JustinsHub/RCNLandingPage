@@ -9,6 +9,15 @@ class RandomUser {
             return error
         }
     }
+
+    static async findManyRandomUsers(numberOfUsers: number){
+        try{
+            const findManyUsers = await Request.randomUserHttp.get(`/api/?results=${numberOfUsers}`)
+            return findManyUsers
+        }catch(error) {
+            return error
+        }
+    }
     
 }
 

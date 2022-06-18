@@ -1,6 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { useSelector, useDispatch, shallowEqual } from 'react-redux'
-import { fetchRandomUser } from '../actions/actions-creators'
+import React, { useRef, useState } from 'react'
 import '../styles/LandingPage.css'
 import About from './About'
 import Athletes from './Athletes'
@@ -15,26 +13,16 @@ const LandingPage:React.FC = () => {
 
     //UI -> Some horse racing background -> CSS popup fade in brand name on load. 
     //Check how loader.css works 
-    //See the best of the best on horse racing (players description)
     //Get a glimpse of our horse racing athletes (random players) (3x3 grid card) -> Users can click on the athelete and that will lead to their profile -> onHover boxShadow delay
 
-
-    const profile = useSelector((state: any) => state.profile, shallowEqual)
-    const error = useSelector((state: any) => state.error)
-    const dispatch = useDispatch()
-
     const [isLoading, setIsLoading] = useState(false)
-
-    useEffect(() => {
-        dispatch(fetchRandomUser() as any)
-    }, [dispatch])
 
     return (
         <section>
             <section>
                 <Navbar about={navigateAbout} contact={navigateContact}/>
             </section>
-            
+
            <div className="LandingPage-bg"> 
                 <div>
                     RACETRACK TELEVISION NETWORK ATHLETES

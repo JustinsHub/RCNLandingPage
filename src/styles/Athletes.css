@@ -4,8 +4,24 @@
   color: rgb(45, 58, 140, 0.8);
 }
 
+.card:hover {
+  box-shadow: 0 0 0.9rem rgb(149, 159, 207);
+  transition: 0.3s box-shadow;
+}
 .AthleteCards-pfp {
   border-radius: 50%;
   height: 50%;
   width: 50%;
+  box-shadow: 0 0 0 1.3rem rgb(149, 159, 207, 0.5);
+}
+
+.AthleteCards-f-n {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: rgb(45, 58, 140, 0.8);
+}
+
+.AthleteCards-f {
+  font-weight: 600;
+  color: rgb(45, 58, 140, 0.8);
 }

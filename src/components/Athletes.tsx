@@ -9,15 +9,7 @@ const Athletes:React.FC = () => {
                 Meet Some of Our Athletes!
             </div>
             <div className="row">
-                <div className="col">
-                   <AthleteCards/>
-                </div>
-
-                <div className="col">
-                   <AthleteCards/>
-                </div>
-
-                <div className="col">
+                <div className="col-xs-12 col-sm-12">
                    <AthleteCards/>
                 </div>
             </div>
