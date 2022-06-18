@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch, shallowEqual } from 'react-redux'
-import { fetchRandomUser } from '../state/actions-creators'
+import { fetchRandomUser } from '../actions/actions-creators'
 
 const LandingPage:React.FC = () => {
 
-   
 
     const profile = useSelector((state: any) => state.profile, shallowEqual)
     const error = useSelector((state: any) => state.error)
@@ -17,9 +16,18 @@ const LandingPage:React.FC = () => {
     }, [dispatch])
 
     return (
-        <div className="h1">
-            <div>{profile.results.map((res:any) => res.name.first)}</div>
+        <section>
+        <div>
+            {profile?.results.map((res:any, i:number) =>  
+            <div key={i}>
+                <div>
+                    {res.name.first}
+                </div>
+                <img src={res.picture.large} alt="horse athlete"></img>
+            </div>
+        )}
         </div>
+    </section>
     )
 }
 

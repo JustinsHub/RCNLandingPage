@@ -1,0 +1,31 @@
+.Navbar-color {
+  color: white !important;
+  text-decoration: none;
+}
+
+.Navbar-hover:hover {
+  color: #2d3a8c;
+}
+
+.btn-default {
+  background-color: #2d3a8c !important;
+}
+
+.dropdown-menu {
+  min-width: 80px !important;
+}
+
+.navbar {
+  background-color: #959fcf;
+}
+.navbar.active {
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  background: rgba(248, 234, 213, 0.753);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.322);
+}
+.navbar-brand {
+  color: black;
+}

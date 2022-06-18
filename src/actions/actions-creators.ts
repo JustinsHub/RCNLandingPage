@@ -7,7 +7,7 @@ export const fetchRandomUser = () => {
             const { data }:any = await RandomUser.findRandomUser()
             dispatch(randomUser(data))
         } catch (error) {
-            return error
+            dispatch(error)
         }
     }
 }

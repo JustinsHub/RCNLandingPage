@@ -1,4 +1,4 @@
-import { FETCH_RANDOM_USER, ERROR } from "../action-types"
+import { FETCH_RANDOM_USER, ERROR } from "../actions/action-types"
 
 type Action = Initial
 
@@ -28,6 +28,5 @@ export const rootReducer = (state:any = INITIAL_STATE, action:Action) => {
         default:
             return state
     }
-
 }
 
