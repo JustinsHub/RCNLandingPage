@@ -9,6 +9,7 @@ class RandomUser {
             return error
         }
     }
+    
 }
 
 export default RandomUser

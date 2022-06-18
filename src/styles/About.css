@@ -6,7 +6,14 @@
     0 0 0 2.4rem rgb(149, 159, 207, 0.5);
 }
 
+.About-img:hover {
+  width: auto;
+  height: 77%;
+  transition: 0.4s height;
+}
+
 .About-t {
   font-size: 2.5rem;
   font-weight: bold;
+  color: rgb(45, 58, 140, 0.8);
 }

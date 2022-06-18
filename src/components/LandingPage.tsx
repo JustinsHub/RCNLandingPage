@@ -34,16 +34,7 @@ const LandingPage:React.FC = () => {
             <section>
                 <Navbar about={navigateAbout} contact={navigateContact}/>
             </section>
-            {/* <div>
-                {profile?.results.map((res:any, i:number) =>  
-                <div key={i}>
-                    <div>
-                        {res.name.first}
-                    </div>
-                    <img src={res.picture.large} alt="horse athlete"></img>
-                </div>
-            )}
-            </div> */}
+            
            <div className="LandingPage-bg"> 
                 <div>
                     RACETRACK TELEVISION NETWORK ATHLETES
