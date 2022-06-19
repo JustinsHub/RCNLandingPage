@@ -11,9 +11,10 @@ const LandingPage:React.FC = () => {
     const navigateContact = useRef(null)
     //TODO: 
 
-    //UI -> Some horse racing background -> CSS popup fade in brand name on load. 
+    //UI -> add lazy load on scroll
+    //add 
     //Check how loader.css works 
-    //Get a glimpse of our horse racing athletes (random players) (3x3 grid card) -> Users can click on the athelete and that will lead to their profile -> onHover boxShadow delay
+    //Users can click on the athelete and that will lead to their profile 
 
     const [isLoading, setIsLoading] = useState(false)
 

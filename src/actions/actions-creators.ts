@@ -1,5 +1,5 @@
 import RandomUser from "../api/randomUserAPI"
-import { FETCH_RANDOM_USER, FETCH_MANY_RANDOM_USERS } from "./action-types"
+import { ActionTypes } from "./action-types"
 
 export const fetchRandomUser = () => {
     return async (dispatch:any) => {
@@ -22,19 +22,48 @@ export const fetchManyRandomUsers = (numOfUsers:number) => {
     }
 }
 
+export const paginatePage:any = (page:number, results:number) => {
+    return async (dispatch:any) => {
+        try {
+            const paginate: any = await RandomUser.paginatePage(page, results)
+            dispatch(pagination(paginate))
+        } catch (error) {
+            dispatch(error)
+        }
+    }
+}
+
+// export const storeRandomUser = (user:any) => {
+//     return (dispatch:any) => {
+//         dispatch(storeUser(user))
+//     }
+// }
     
-export const randomUser = (profile:any) => {
+export const randomUser = (user:any) => {
     return {
-        type: FETCH_RANDOM_USER,
-        profile
+        type: ActionTypes.FETCH_RANDOM_USER,
+        user
     }
 }
     
-export const manyRandomUsers = (profile:any) => {
+export const manyRandomUsers = (users:any) => {
     return {
-        type: FETCH_MANY_RANDOM_USERS,
-        profile
+        type: ActionTypes.FETCH_MANY_RANDOM_USERS,
+        users
     }
 }
+
+export const pagination = (page:any) => {
+    return {
+        type: ActionTypes.PAGINATE_PAGE,
+        page
+    }
+}
+// export const storeUser = (user:any) => {
+//     return {
+//         type: ActionTypes.STORE_RANDOM_USER,
+//         user
+//     }
+// }
     
 
