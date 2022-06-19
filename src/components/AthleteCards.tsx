@@ -16,7 +16,7 @@ const AthleteCards:React.FC = () => {
 
     return (
         <div>
-            <div className="d-flex justify-content-center mt-4">
+            <div className="d-flex justify-content-center mt-2">
                 {profile?.results.map((res:any, i:number) =>  
                 <div key={i}>
                         <div className="card m-5" style={{width: "18rem"}}>

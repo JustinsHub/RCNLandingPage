@@ -1,7 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Anton");
+
 .LandingPage-bg {
-  background-image: url(./images/LandingPageBG.jpeg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url(./images/LandingPageBG.jpeg);
   background-size: cover;
-  /* background-repeat: no-repeat; */
-  width: auto;
-  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Title {
+  font-size: 5rem;
+  color: white;
+  margin-top: 25%;
+  font-family: "Anton", sans-serif;
+}
+
+.Title-s-t {
+  color: rgb(45, 58, 140);
+  font-style: italic;
 }

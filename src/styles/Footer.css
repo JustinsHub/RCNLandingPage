@@ -1,17 +1,12 @@
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  margin-bottom: 60px;
-}
 .Footer {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   font-size: 0.7rem;
-  margin-bottom: 1rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
 .Footer-l {

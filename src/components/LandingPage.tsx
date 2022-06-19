@@ -5,6 +5,7 @@ import Athletes from './Athletes'
 import ContactUs from './ContactUs'
 import Footer from './Footer'
 import Navbar from './Navbar'
+import Title from './Title'
 
 const LandingPage:React.FC = () => {
     const navigateAbout = useRef(null)
@@ -24,9 +25,7 @@ const LandingPage:React.FC = () => {
             </section>
 
            <div className="LandingPage-bg"> 
-                <div>
-                    RACETRACK TELEVISION NETWORK ATHLETES
-                </div>
+                <Title/>
            </div>
 
            <section ref={navigateAbout}>
@@ -41,9 +40,9 @@ const LandingPage:React.FC = () => {
                <ContactUs/>
            </section>
 
-           <section>
+           {/* <section>
                <Footer/>
-           </section>
+           </section> */}
         </section>
     )
 }
