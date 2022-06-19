@@ -6,8 +6,8 @@
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0.3)
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.4)
     ),
     url(./images/LandingPageBG.jpeg);
   background-size: cover;
@@ -16,7 +16,7 @@
 }
 
 .Title {
-  font-size: 5rem;
+  font-size: 4.5rem;
   color: white;
   margin-top: 25%;
   font-family: "Anton", sans-serif;
@@ -25,4 +25,8 @@
 .Title-s-t {
   color: rgb(45, 58, 140);
   font-style: italic;
+}
+
+.Title-o-l {
+  -webkit-text-stroke: 0.01rem #2d3a8c;
 }

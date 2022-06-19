@@ -3,7 +3,6 @@ import '../styles/LandingPage.css'
 import About from './About'
 import Athletes from './Athletes'
 import ContactUs from './ContactUs'
-import Footer from './Footer'
 import Navbar from './Navbar'
 import Title from './Title'
 
@@ -25,7 +24,7 @@ const LandingPage:React.FC = () => {
             </section>
 
            <div className="LandingPage-bg"> 
-                <Title/>
+                <Title about={navigateAbout}/>
            </div>
 
            <section ref={navigateAbout}>
@@ -40,9 +39,6 @@ const LandingPage:React.FC = () => {
                <ContactUs/>
            </section>
 
-           {/* <section>
-               <Footer/>
-           </section> */}
         </section>
     )
 }

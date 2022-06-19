@@ -10,6 +10,8 @@ const AthleteCards:React.FC = () => {
     const dispatch = useDispatch()
     console.log(profile)
 
+    //when card is clicked -> redirects to profile of the user... how to pass info to profile component?
+
     useEffect(() => {
         dispatch(fetchManyRandomUsers(3) as any)
     }, [dispatch])
