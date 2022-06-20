@@ -3,6 +3,7 @@ import '../styles/LandingPage.css'
 import About from './About'
 import Athletes from './Athletes'
 import ContactUs from './ContactUs'
+import Footer from './Footer'
 import Navbar from './Navbar'
 import Title from './Title'
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 //build redirects to landing page/home
 const PageNotFound: React.FC = () => {
     return (
-        <div>
+        <div className="d-flex justify-content-center">
             Page Not Found. 
         </div>
     )

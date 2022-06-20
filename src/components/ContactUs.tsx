@@ -10,7 +10,7 @@ const ContactUs:React.FC = () => {
             <div className="text-center m-2">
                 <a href="mailto:info@rtn.tv" style={{textDecoration: 'none', color: '#2d3a8ccc'}}>info@rtn.tv</a>
             </div>
-            <div className="text-center m-3">
+            <div className="text-center" style={{marginBottom: '5rem'}}>
             Racetrack Television Network, LLC<br/>
             4075 Volunteer Blvd.<br/>
             Henderson, NV  89044<br/>
