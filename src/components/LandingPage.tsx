@@ -3,19 +3,12 @@ import '../styles/LandingPage.css'
 import About from './About'
 import Athletes from './Athletes'
 import ContactUs from './ContactUs'
-import Footer from './Footer'
 import Navbar from './Navbar'
 import Title from './Title'
 
 const LandingPage:React.FC = () => {
     const navigateAbout = useRef(null)
     const navigateContact = useRef(null)
-    //TODO: 
-
-    //UI -> add lazy load on scroll
-    //add 
-    //Check how loader.css works 
-    //Users can click on the athelete and that will lead to their profile 
 
     const [isLoading, setIsLoading] = useState(false)
 

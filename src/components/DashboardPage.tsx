@@ -7,6 +7,7 @@ import useFormData from './hooks/useFormData'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import '../styles/DashboardPage.css'
+import Pagination from './Pagination'
 
 const DashboardPage:React.FC = () => {
     const INITIAL_DATA = {
@@ -14,12 +15,10 @@ const DashboardPage:React.FC = () => {
     }
     const { users } = useSelector((state: any) => state.fetchUsers, shallowEqual)
     const dispatch = useDispatch()
-    console.log(users)
-
 
     const [searchUser, handleChange] = useFormData(INITIAL_DATA)
     const [currentPage, setCurrentPage] = useState(1)
-    const [usersPerPage, setUsersPerPage] = useState(9)
+    const [usersPerPage] = useState(12)
     const [isLoading, setIsLoading] = useState(false)
 
 
@@ -38,7 +37,10 @@ const DashboardPage:React.FC = () => {
     const indexOfFirstUser = indexOfLastUser - usersPerPage
 
     //slices/renders the amount we input in usersPerPage state
-    const currentUsers = users?.results.slice(indexOfFirstUser, indexOfLastUser)
+    const currentUsers = users?.results?.slice(indexOfFirstUser, indexOfLastUser)
+
+    const paginate = (number: number) => setCurrentPage(() => number)
+
 
     const SearchBar = 
     <div className="container">
@@ -66,32 +68,32 @@ const DashboardPage:React.FC = () => {
         <div className="d-flex justify-content-center mt-2">
             <div className='container-fluid'>
                 <div className='row'>
-            {currentUsers?.filter((users: any) => {
-                if(searchUser.fullName === '') {
-                    return users
-                }else if (users.name.first.toLowerCase().includes(searchUser.fullName.toLowerCase()) || users.name.last.toLowerCase().includes(searchUser.fullName.toLowerCase())) {
-                    return users
-                }
-            }).map((user:any, i:number) => 
-                <div key={i} className="col">
-                    <div className="card m-5" style={{width: "18rem"}}>
-                        <Link to={'/profile'} className="AthleteCards-l">
-                            <div className="d-flex justify-content-center m-3">
-                                <img src={user.picture.large} className="AthleteCards-pfp m-4" alt="Random Athletes of RTNA"/>
+                    {currentUsers?.filter((users: any) => {
+                        if(searchUser.fullName === '') {
+                            return users
+                        }else if (users.name.first.toLowerCase().includes(searchUser.fullName.toLowerCase()) || users.name.last.toLowerCase().includes(searchUser.fullName.toLowerCase())) {
+                            return users
+                        }
+                    }).map((user:any, i:number) => 
+                        <div key={i} className="col">
+                            <div className="card m-5" style={{width: "18rem"}}>
+                                <Link to={'/profile'} className="AthleteCards-l">
+                                    <div className="d-flex justify-content-center m-3">
+                                        <img src={user.picture.large} className="AthleteCards-pfp m-4" alt="Random Athletes of RTNA"/>
+                                    </div>
+                                <div className="card-body">
+                                    <div className="AthleteCards-f-n card-title d-flex justify-content-center">{user.name.first}</div>
+                                    <div className="text-center">
+                                        <div><span className="AthleteCards-f">Current Location:</span> {user.location.city}</div>
+                                        <div><span className="AthleteCards-f">Current Team:</span> {user.location.country}</div>
+                                        <div><span className="AthleteCards-f">Horse Name:</span> {user.location.street.name}</div>
+                                    </div>
+                                </div>
+                                </Link>
                             </div>
-                        <div className="card-body">
-                            <div className="AthleteCards-f-n card-title d-flex justify-content-center">{user.name.first}</div>
-                            <div className="text-center">
-                                <div><span className="AthleteCards-f">Current Location:</span> {user.location.city}</div>
-                                <div><span className="AthleteCards-f">Current Team:</span> {user.location.country}</div>
-                                <div><span className="AthleteCards-f">Horse Name:</span> {user.location.street.name}</div>
-                            </div>
-                        </div>
-                        </Link>
-                    </div>
+                         </div>
+                     )}
                 </div>
-            )}
-            </div>
             </div>
         </div>
     </div>
@@ -112,12 +114,12 @@ const DashboardPage:React.FC = () => {
             <div>
                 {SearchBar}
             </div>
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        {Users}
-                    </div>
-                </div>
+            <div>
+               {Users}
+               <Pagination 
+               usersPerPage={usersPerPage} 
+               totalUsers={users.results.length} 
+               paginate={paginate}/>
             </div>
         </div>
     )
