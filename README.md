@@ -48,7 +48,7 @@ npm start
 npm run build
 ```
 
-**Relevant version requirements**
+**Frameworks/libraries used and relevant version requirements**
 
 ```shell
  "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -92,6 +92,7 @@ npm run build
 
 - [ ] Loading Spinners
 - [ ] loader.css
+- [ ] add lazy load
 - [ ] integrate temp navbar or navbar all around
 - [ ] refactor resuable card components
 - [ ] page logo
