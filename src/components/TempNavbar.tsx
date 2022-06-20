@@ -17,7 +17,7 @@ const TempNavbar: React.FC = () => {
         <section className="Navbar">
             <nav className={navbar ? 'navbar active fixed-top' : 'navbar fixed-top'}>
                 <div className="container">
-                    <NavLink className="Navbar-hover Navbar-color" style={{fontSize:'1.5rem'}} to="/">
+                    <NavLink className="Navbar-hover Navbar-color" style={{fontSize:'1.5rem'}} to={-1 as any}>
                         <FontAwesomeIcon icon={faArrowLeft}/>
                         <span className="m-3">Home</span>
                     </NavLink>

@@ -9,7 +9,7 @@ const MainRoutes: React.FC = () => {
     return (
         <div>
             <Routes>
-                <Route path='/' element={<LandingPage/>}/>
+                <Route path='/RCNLandingPage' element={<LandingPage/>}/>
                 <Route path='/dashboard' element={<DashboardPage/>}/>
                 <Route path='/profile/:userName' element={<ProfilePage/>}/>
                 {/* <Route path='*' element={<PageNotFound/>}/> */}
