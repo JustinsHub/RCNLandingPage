@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({about, contact}) => {
         <section className="Navbar">
             <nav className={navbar ? 'navbar active fixed-top' : 'navbar fixed-top'}>
                 <div className="container">
-                    <NavLink className="Navbar-hover Navbar-color" style={{fontSize:'1.5rem'}} to="/">RTNA</NavLink>
+                    <NavLink className="Navbar-hover Navbar-color" style={{fontSize:'1.5rem'}} to="/RCNLandingPage">RTNA</NavLink>
                     <ul className="nav justify-content-end">
                         <li className="nav-item">
                             <div onClick={scrollAbout} className="Navbar-color Navbar-hover btn">
