@@ -15,3 +15,4 @@
 - [ ] Loading Spinners
 - [ ] loader.css
 - [ ] integrate temp navbar or navbar all around
+- [ ] refactor resuable card components

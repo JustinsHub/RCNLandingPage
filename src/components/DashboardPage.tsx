@@ -19,16 +19,16 @@ const DashboardPage:React.FC = () => {
     const [searchUser, handleChange] = useFormData(INITIAL_DATA)
     const [currentPage, setCurrentPage] = useState(1)
     const [usersPerPage] = useState(12)
-    const [isLoading, setIsLoading] = useState(false)
+    // const [isLoading, setIsLoading] = useState(false)
 
 
 
     useEffect(() => {
         dispatch(fetchManyRandomUsers(96) as any)
-        const pageLoad = setTimeout(() => {
-            setIsLoading(() => true)
-        }, 400)
-        return () => clearTimeout(pageLoad)
+        // const pageLoad = setTimeout(() => {
+        //     setIsLoading(() => true)
+        // }, 400)
+        // return () => clearTimeout(pageLoad)
     }, [dispatch])
 
 
@@ -77,7 +77,7 @@ const DashboardPage:React.FC = () => {
                     }).map((user:any, i:number) => 
                         <div key={i} className="col">
                             <div className="card m-5" style={{width: "18rem"}}>
-                                <Link to={'/profile'} className="AthleteCards-l">
+                                <Link to={`/profile/${user.name.first}`} className="AthleteCards-l">
                                     <div className="d-flex justify-content-center m-3">
                                         <img src={user.picture.large} className="AthleteCards-pfp m-4" alt="Random Athletes of RTNA"/>
                                     </div>
@@ -99,7 +99,7 @@ const DashboardPage:React.FC = () => {
     </div>
 
 
-    if(!isLoading) return <div>Loading...</div>
+    // if(!isLoading) return <div>Loading...</div>
     
     return (
         <div className="DashboardPage-bg">
