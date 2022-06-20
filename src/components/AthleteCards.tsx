@@ -7,9 +7,8 @@ import '../styles/Athletes.css'
 
 const AthleteCards:React.FC = () => {
     const { users } = useSelector((state: any) => state.fetchUsers, shallowEqual)
-    const dispatch = useDispatch()
+    const dispatch:any = useDispatch()
     const [isLoading, setIsLoading] = useState(false)
-    //when card is clicked -> redirects to profile of the user... how to pass info to profile component?
 
     useEffect(() => {
         dispatch(fetchManyRandomUsers(3) as any)
@@ -25,7 +24,7 @@ const AthleteCards:React.FC = () => {
                     {users?.results?.map((user:any, i:number) =>  
                         <div key={i} className="col">
                                 <div className="card m-5" style={{width: "18rem"}}>
-                                    <Link to={'/profile'} className="AthleteCards-l">
+                                    <Link to={`/profile/${user.name.first}`} className="AthleteCards-l">
                                         <div className="d-flex justify-content-center m-3">
                                             <img src={user.picture.large} className="AthleteCards-pfp m-4" alt="Random Athletes of RTNA"/>
                                         </div>

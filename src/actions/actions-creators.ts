@@ -22,22 +22,22 @@ export const fetchManyRandomUsers = (numOfUsers:number) => {
     }
 }
 
-export const paginatePage:any = (page:number, results:number) => {
-    return async (dispatch:any) => {
-        try {
-            const paginate: any = await RandomUser.paginatePage(page, results)
-            dispatch(pagination(paginate))
-        } catch (error) {
-            dispatch(error)
-        }
-    }
-}
-
-// export const storeRandomUser = (user:any) => {
-//     return (dispatch:any) => {
-//         dispatch(storeUser(user))
+// export const paginatePage:any = (page:number, results:number) => {
+//     return async (dispatch:any) => {
+//         try {
+//             const paginate: any = await RandomUser.paginatePage(page, results)
+//             dispatch(pagination(paginate))
+//         } catch (error) {
+//             dispatch(error)
+//         }
 //     }
 // }
+
+export const storeRandomUser = (user:any) => {
+    return (dispatch:any) => {
+        dispatch(storeUser(user))
+    }
+}
     
 export const randomUser = (user:any) => {
     return {
@@ -53,17 +53,18 @@ export const manyRandomUsers = (users:any) => {
     }
 }
 
-export const pagination = (page:any) => {
-    return {
-        type: ActionTypes.PAGINATE_PAGE,
-        page
-    }
-}
-// export const storeUser = (user:any) => {
+// export const pagination = (page:any) => {
 //     return {
-//         type: ActionTypes.STORE_RANDOM_USER,
-//         user
+//         type: ActionTypes.PAGINATE_PAGE,
+//         page
 //     }
 // }
+
+export const storeUser = (user:any) => {
+    return {
+        type: ActionTypes.STORE_RANDOM_USER,
+        user
+    }
+}
     
 

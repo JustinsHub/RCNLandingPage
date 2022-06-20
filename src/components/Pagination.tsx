@@ -15,11 +15,11 @@ const Pagination:React.FC<PaginationProps> = ({usersPerPage, totalUsers, paginat
     }
 
     return (
-        <nav>
+        <nav className="d-flex justify-content-center mb-5">
             <ul className="pagination">
                 {pageNumbers.map((number) => (
                     <li key={number} className="page-item">
-                        <div onClick={() => paginate(number)}  className="page-link">
+                        <div onClick={() => paginate(number)}  className="page-link" style={{cursor: 'pointer', color: '#2d3a8c'}}>
                             {number}
                         </div>
                     </li>

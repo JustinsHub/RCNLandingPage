@@ -11,7 +11,7 @@ const MainRoutes: React.FC = () => {
             <Routes>
                 <Route path='/' element={<LandingPage/>}/>
                 <Route path='/dashboard' element={<DashboardPage/>}/>
-                <Route path='/profile' element={<ProfilePage/>}/>
+                <Route path='/profile/:userName' element={<ProfilePage/>}/>
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>
         </div>
