@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import { fetchManyRandomUsers } from '../actions/actions-creators'
@@ -8,7 +8,7 @@ import '../styles/Athletes.css'
 const AthleteCards:React.FC = () => {
     const { users } = useSelector((state: any) => state.fetchUsers, shallowEqual)
     const dispatch:any = useDispatch()
-    const [isLoading, setIsLoading] = useState(false)
+    // const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         dispatch(fetchManyRandomUsers(3) as any)

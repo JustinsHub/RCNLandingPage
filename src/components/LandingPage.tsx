@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import '../styles/LandingPage.css'
 import About from './About'
 import Athletes from './Athletes'
@@ -10,7 +10,7 @@ const LandingPage:React.FC = () => {
     const navigateAbout = useRef(null)
     const navigateContact = useRef(null)
 
-    const [isLoading, setIsLoading] = useState(false)
+    // const [isLoading, setIsLoading] = useState(false)
 
     return (
         <section>

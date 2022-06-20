@@ -1,14 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { getRemainingTime } from './helpers/countdownHelper'
+import React from 'react'
 interface TimerProps {
     date: any
-}
-
-const defaultTime = {
-    days: '00',
-    hours: '00',
-    minutes: '00',
-    seconds: '00'
 }
 
 const Timer:React.FC<TimerProps> = ({date}) => {
