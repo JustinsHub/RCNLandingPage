@@ -36,8 +36,17 @@
 }
 
 .DashboardPage-t {
-  font-size: 2rem;
-  color: black;
-  margin: 5%;
+  font-size: 3rem;
+  color: white;
+  margin: 4%;
   font-family: "Anton", sans-serif;
+}
+
+.DashboardPage-s-t {
+  color: rgb(45, 58, 140);
+  font-style: italic;
+}
+
+.DashboardPage-o-l {
+  -webkit-text-stroke: 0.1rem #2d3a8c;
 }

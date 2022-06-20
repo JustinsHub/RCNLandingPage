@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { fetchManyRandomUsers } from '../actions/actions-creators'
-import useFormData from './hooks/useFormData'
-import '../styles/DashboardPage.css'
-import { Link } from 'react-router-dom'
 import TempNavbar from './TempNavbar'
+import useFormData from './hooks/useFormData'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import '../styles/DashboardPage.css'
 
 const DashboardPage:React.FC = () => {
     const INITIAL_DATA = {
@@ -12,16 +14,31 @@ const DashboardPage:React.FC = () => {
     }
     const { users } = useSelector((state: any) => state.fetchUsers, shallowEqual)
     const dispatch = useDispatch()
+    console.log(users)
 
-    const [isLoading, setIsLoading] = useState(false)
 
     const [searchUser, handleChange] = useFormData(INITIAL_DATA)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [usersPerPage, setUsersPerPage] = useState(9)
+    const [isLoading, setIsLoading] = useState(false)
+
+
 
     useEffect(() => {
-        dispatch(fetchManyRandomUsers(12) as any)
-        setIsLoading(() => true)
+        dispatch(fetchManyRandomUsers(96) as any)
+        const pageLoad = setTimeout(() => {
+            setIsLoading(() => true)
+        }, 400)
+        return () => clearTimeout(pageLoad)
     }, [dispatch])
 
+
+    //Get current posts
+    const indexOfLastUser = currentPage * usersPerPage
+    const indexOfFirstUser = indexOfLastUser - usersPerPage
+
+    //slices/renders the amount we input in usersPerPage state
+    const currentUsers = users?.results.slice(indexOfFirstUser, indexOfLastUser)
 
     const SearchBar = 
     <div className="container">
@@ -29,6 +46,7 @@ const DashboardPage:React.FC = () => {
               <div className="col-md-6">
                   <form>
                     <div className="form">
+                        <FontAwesomeIcon icon={faSearch} className="fa-search"/>
                         <input 
                             type="text" 
                             name="fullName"
@@ -37,7 +55,6 @@ const DashboardPage:React.FC = () => {
                             value={searchUser.fullName}
                             onChange={handleChange}
                         />
-                    <span className="left-pan"><i className="fa fa-microphone"></i></span>
                     </div>
                   </form>
               </div>
@@ -47,9 +64,9 @@ const DashboardPage:React.FC = () => {
     const Users = 
     <div>
         <div className="d-flex justify-content-center mt-2">
-            <div className='container-fluid' >
+            <div className='container-fluid'>
                 <div className='row'>
-            {users?.results?.filter((users: any) => {
+            {currentUsers?.filter((users: any) => {
                 if(searchUser.fullName === '') {
                     return users
                 }else if (users.name.first.toLowerCase().includes(searchUser.fullName.toLowerCase()) || users.name.last.toLowerCase().includes(searchUser.fullName.toLowerCase())) {
@@ -79,14 +96,17 @@ const DashboardPage:React.FC = () => {
         </div>
     </div>
 
+
+    if(!isLoading) return <div>Loading...</div>
+    
     return (
-        <div>
+        <div className="DashboardPage-bg">
             <section>
                 <TempNavbar/>
             </section>
-            <div className="d-flex justify-content-center m-5">
+            <div className="d-flex justify-content-center mt-5">
                 <div className="DashboardPage-t">
-                    Learn more about our athletes!
+                    <span className="DashboardPage-o-l">Learn more about our</span> <span className="DashboardPage-s-t">athletes!</span>
                 </div>
             </div>
             <div>
