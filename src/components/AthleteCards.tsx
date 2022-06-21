@@ -11,7 +11,7 @@ const AthleteCards:React.FC = () => {
     // const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        dispatch(fetchManyRandomUsers(3) as any)
+        dispatch(fetchManyRandomUsers(3))
         // setIsLoading(() => true)
     }, [dispatch])
 

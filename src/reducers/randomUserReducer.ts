@@ -20,7 +20,7 @@ export const randomUserReducer = (state:any = INITIAL_STATE, action:Action) => {
         case ActionTypes.FETCH_RANDOM_USER:
             return {
                 ...state, 
-                user: action.users
+                user: action.user
             }
         case ActionTypes.FETCH_MANY_RANDOM_USERS: 
             return {

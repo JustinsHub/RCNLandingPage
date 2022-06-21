@@ -1,5 +1,7 @@
 # Racetrack Television Network Athletes
 
+## https://justinshub.github.io/RCNLandingPage/
+
 ## Description
 
 > A website that a user can get to know their world famous jockeys a little better.
@@ -65,7 +67,6 @@ npm run build
     "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0-beta1",
-    "dayjs": "^1.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",

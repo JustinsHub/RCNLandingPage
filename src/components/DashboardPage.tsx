@@ -13,18 +13,19 @@ const DashboardPage:React.FC = () => {
     const INITIAL_DATA = {
         fullName: ''
     }
+
     const { users } = useSelector((state: any) => state.fetchUsers, shallowEqual)
-    const dispatch = useDispatch()
+    const dispatch:any = useDispatch()
 
     const [searchUser, handleChange] = useFormData(INITIAL_DATA)
+    
     const [currentPage, setCurrentPage] = useState(1)
     const [usersPerPage] = useState(12)
     // const [isLoading, setIsLoading] = useState(false)
 
 
-
     useEffect(() => {
-        dispatch(fetchManyRandomUsers(96) as any)
+        dispatch(fetchManyRandomUsers(96))
         // const pageLoad = setTimeout(() => {
         //     setIsLoading(() => true)
         // }, 400)
@@ -32,7 +33,6 @@ const DashboardPage:React.FC = () => {
     }, [dispatch])
 
 
-    //Get current posts
     const indexOfLastUser = currentPage * usersPerPage
     const indexOfFirstUser = indexOfLastUser - usersPerPage
 
@@ -40,7 +40,6 @@ const DashboardPage:React.FC = () => {
     const currentUsers = users?.results?.slice(indexOfFirstUser, indexOfLastUser)
 
     const paginate = (number: number) => setCurrentPage(() => number)
-
 
     const SearchBar = 
     <div className="container">
@@ -50,12 +49,12 @@ const DashboardPage:React.FC = () => {
                     <div className="form">
                         <FontAwesomeIcon icon={faSearch} className="fa-search"/>
                         <input 
-                            type="text" 
-                            name="fullName"
-                            className="form-control form-input" 
-                            placeholder="Search Athlete"
-                            value={searchUser.fullName}
-                            onChange={handleChange}
+                        type="text" 
+                        name="fullName"
+                        className="form-control form-input" 
+                        placeholder="Search Athlete"
+                        value={searchUser.fullName}
+                        onChange={handleChange}
                         />
                     </div>
                   </form>
@@ -68,13 +67,13 @@ const DashboardPage:React.FC = () => {
         <div className="d-flex justify-content-center mt-2">
             <div className='container-fluid'>
                 <div className='row'>
-                    {currentUsers?.filter((users: any) => {
+                    {currentUsers.filter((users: any) => {
                         if(searchUser.fullName === '') {
                             return users
                         }else if (users.name.first.toLowerCase().includes(searchUser.fullName.toLowerCase()) || users.name.last.toLowerCase().includes(searchUser.fullName.toLowerCase())) {
                             return users
                         }
-                    }).map((user:any, i:number) => 
+                        }).map((user:any, i:number) => 
                         <div key={i} className="col">
                             <div className="card m-5" style={{width: "18rem"}}>
                                 <Link to={`/profile/${user.name.first}`} className="AthleteCards-l">
